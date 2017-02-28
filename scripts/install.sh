@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# get the script path http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
+pushd `dirname $0` > /dev/null
+SCRIPTPATH=`pwd -P`
+popd > /dev/null
+ORIGINAL_WD=${PWD}
+cd ${SCRIPTPATH}
+
+# TODO: extract and build
+
+
+cd ${ORIGINAL_WD}
