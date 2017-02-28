@@ -2,33 +2,14 @@
 
 echo "Download tarballs"
 
-JDK_VERSION=8u121
-JDK_TAR=jdk-${JDK_VERSION}-linux-x64.tar.gz
-
-MAVEN_VERSION=3.3.9
-MAVEN_TAR=apache-maven-${MAVEN_VERSION}-bin.tar.gz
-MAVEN_DOWNLOAD=http://www-us.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/${MAVEN_TAR}
-
-HADOOP_VERSION=2.7.3
-HADOOP_TAR=hadoop-${HADOOP_VERSION}.tar.gz
-HADOOP_DOWNLOAD=http://www-us.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/${HADOOP_TAR}
-
-SPARK_VERSION=2.1.0
-SPARK_TAR=spark-${SPARK_VERSION}-bin-without-hadoop.tgz
-SPARK_DOWNLOAD=http://www-us.apache.org/dist/spark/spark-${SPARK_VERSION}/${SPARK_TAR}
-
-HIBENCH_ZIP=hibench.zip
-HIBENCH_DOWNLOAD=https://github.com/intel-hadoop/HiBench/archive/master.zip
-
-# echo Hadoop version: ${HADOOP_VERSION}
-# echo Hadoop download url: ${HADOOP_DOWNLOAD}
-
 # get the script path http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd -P`
 popd > /dev/null
 ORIGINAL_WD=${PWD}
 cd ${SCRIPTPATH}
+
+source common.sh
 
 if [ -f ${JDK_TAR} ]; then
     echo "Already downloaded JDK ${JDK_VERSION}"
@@ -74,5 +55,6 @@ else
     wget ${HIBENCH_DOWNLOAD}
     mv master.zip ${HIBENCH_ZIP}
 fi
+
 
 cd ${ORIGINAL_WD}
