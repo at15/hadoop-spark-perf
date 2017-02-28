@@ -12,4 +12,8 @@
 
 ## Ref
 
-- https://github.com/njvijay/vagrant-jilla-hadoop
+- https://github.com/at15/dev-node some snippets I have back in undergraduate
+- 4 star, but really helpful https://github.com/njvijay/vagrant-jilla-hadoop
+- 400 star https://github.com/kiwenlau/hadoop-cluster-docker
+  - https://github.com/kiwenlau/hadoop-cluster-docker/blob/master/Dockerfile
+- May need to modify host file for supporint slave https://github.com/devopsgroup-io/vagrant-hostmanager

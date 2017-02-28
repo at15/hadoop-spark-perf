@@ -38,6 +38,8 @@ function installHibench {
     cd ${SCRIPTPATH}
 }
 
+# TODO: install hadoop and spark
+
 if hash java 2>/dev/null; then 
     echo "Java is installed"
 else
