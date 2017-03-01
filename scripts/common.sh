@@ -12,6 +12,7 @@ MAVEN_FOLDER=apache-maven-${MAVEN_VERSION}
 HADOOP_VERSION=2.7.3
 HADOOP_TAR=hadoop-${HADOOP_VERSION}.tar.gz
 HADOOP_DOWNLOAD=http://www-us.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/${HADOOP_TAR}
+HADOOP_HOME=/usr/lib/hadoop
 
 SPARK_VERSION=2.1.0
 SPARK_TAR=spark-${SPARK_VERSION}-bin-without-hadoop.tgz
