@@ -8,6 +8,12 @@
 - [x] Install HiBench
 - [ ] Install Single Node Hadoop
 - [ ] Install Single Node Spark
+- [ ] Install java map agent
+  - [ ] compile
+  - [ ] modify bin
+- [ ] Install flame graph
+  - https://github.com/brendangregg/FlameGraph
+  - [ ] set environment variable `export FLAMEGRAPH_DIR=/home/at15/workspace/src/github.com/brendangregg/FlameGraph`
 - [ ] Clone Image
 
 ## Ref
