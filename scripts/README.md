@@ -16,6 +16,15 @@
   - [ ] set environment variable `export FLAMEGRAPH_DIR=/home/at15/workspace/src/github.com/brendangregg/FlameGraph`
 - [ ] Clone Image
 
+## Usage
+
+- `sys.sh` will upgrade kernel, install essential tools, allow non password ssh
+- `download.sh` will download oracle jdk, hadoop, spark
+- `install.sh` will extract tar ball and build HiBench
+- `config.sh` will update Hadoop config file
+
+NOTE: `common.sh` is used for config, but there are also many hard coded values, i.e. `hadoop-env.sh`
+
 ## Ref
 
 - https://github.com/at15/dev-node some snippets I have back in undergraduate

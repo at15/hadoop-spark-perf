@@ -19,7 +19,7 @@ fi
 if [ -f "${HOME}/.ssh/config" ]; then
     echo "SSH config is already copied"
 else
-    cp ssh_config ${HOME}/.ssh/config
+    cp config/ssh_config ${HOME}/.ssh/config
 fi
 
 echo "Finish install system tools"

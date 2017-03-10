@@ -47,6 +47,7 @@ function installHadoop {
     echo "Install Hadoop"
     tar -zxf ${HADOOP_TAR} -C /tmp
     sudo mv /tmp/hadoop-${HADOOP_VERSION} ${HADOOP_HOME}
+    # NOTE: put config in other script
 }
 
 

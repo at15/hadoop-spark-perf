@@ -3,6 +3,7 @@
 JDK_VERSION=8u121
 JDK_TAR=jdk-${JDK_VERSION}-linux-x64.tar.gz
 JDK_FOLDER=jdk1.8.0_121
+JAVA_HOME=/usr/lib/jvm/${JDK_FOLDER}
 
 MAVEN_VERSION=3.3.9
 MAVEN_TAR=apache-maven-${MAVEN_VERSION}-bin.tar.gz
