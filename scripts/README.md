@@ -26,8 +26,14 @@
 Hadoop
 
 - `format.sh` will format namenode
-- `start.sh` start daemon
+- `start.sh` start daemon (including yarn)
 - `stop.sh` stop daemon
+
+HiBench
+
+- [ ] TODO: copy hadoop.conf
+- bin/workloads/micro/wordcount/prepare/prepare.sh
+- bin/workloads/micro/wordcount/hadoop/run.sh
 
 NOTE: `common.sh` is used for config, but there are also many hard coded values, i.e. `hadoop-env.sh`
 
