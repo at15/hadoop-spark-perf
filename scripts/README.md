@@ -6,7 +6,7 @@
   - [x] check if it is alreay installed
 - [x] Install Maven
 - [x] Install HiBench
-- [ ] Install Single Node Hadoop
+- [x] Install Single Node Hadoop
 - [ ] Install Single Node Spark
 - [ ] Install java map agent
   - [ ] compile
@@ -22,6 +22,12 @@
 - `download.sh` will download oracle jdk, hadoop, spark
 - `install.sh` will extract tar ball and build HiBench
 - `config.sh` will update Hadoop config file
+
+Hadoop
+
+- `format.sh` will format namenode
+- `start.sh` start daemon
+- `stop.sh` stop daemon
 
 NOTE: `common.sh` is used for config, but there are also many hard coded values, i.e. `hadoop-env.sh`
 

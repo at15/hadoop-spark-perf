@@ -12,6 +12,7 @@ cd ${SCRIPTPATH}
 source ../common.sh
 
 ${HADOOP_HOME}/sbin/stop-dfs.sh
+${HADOOP_HOME}/sbin/stop-yarn.sh
 
 echo "Finish stop hdfs"
 
