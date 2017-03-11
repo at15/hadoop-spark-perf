@@ -14,9 +14,8 @@ DO NOT run the following command on host machine
 - `download.sh`, download oracle JDK, hadoop, spark, hibench
 - `install.sh`, extract tar ball and build HiBench
 - `vagrant package`, this would take a while, the result file is 2.9 GB
-- `vagrant box add --name at15/hadoop-spark-perf package.box`
+- `vagrant box add --force --name at15/hadoop-spark-perf package.box`
 - `rm package.box`
-- [ ] TODO: separate to single node setup `config.sh`, update Hadoop, HiBench config file
 
 Hadoop
 
@@ -41,8 +40,6 @@ NOTE: `common.sh` is used for config, but there are also many hard coded values,
 - [ ] Install flame graph
   - https://github.com/brendangregg/FlameGraph
   - [ ] set environment variable `export FLAMEGRAPH_DIR=/home/at15/workspace/src/github.com/brendangregg/FlameGraph`
-- [ ] Clone Image
-
 
 ## Done
 
@@ -53,6 +50,7 @@ NOTE: `common.sh` is used for config, but there are also many hard coded values,
 - [x] Install Maven
 - [x] Install HiBench
 - [x] Install Single Node Hadoop
+- [x] Clone Image
 
 ## Ref
 

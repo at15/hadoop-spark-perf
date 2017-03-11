@@ -1,0 +1,17 @@
+127.0.0.1	localhost
+# TODO: I think this line is causing the datanode not started properly in https://github.com/at15/hadoop-spark-perf/issues/5
+127.0.1.1	vagrant.vm	vagrant
+
+# single node
+192.168.233.17 single.perf.at15
+
+# master and slave config
+192.168.233.18 master.perf.at15
+192.168.233.19 slave1.perf.at15
+192.168.233.20 slave2.perf.at15
+192.168.233.21 slave3.perf.at15
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
