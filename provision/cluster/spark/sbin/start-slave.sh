@@ -78,10 +78,12 @@ function start_instance {
   fi
   WEBUI_PORT=$(( $SPARK_WORKER_WEBUI_PORT + $WORKER_NUM - 1 ))
 
-  # FIXME: in vagrant this has hostname: Name or service not known
-  # TODO: but this works for master
-  # HOST_NAME=`hostname -f`
-  HOST_NAME=`hostname`
+  # NOTE: you hosts file should be like the following
+  # 192.168.233.18 master.perf.at15 master
+  # 192.168.233.19 slave1.perf.at15 slave1
+  # and the hostname for the maste machine is master, then hostname -f will return master.perf.at15
+  # NOTE: don't have typo in you Vagrantfile
+  HOST_NAME=`hostname -f`
 
   "${SPARK_HOME}/sbin"/spark-daemon.sh start $CLASS $WORKER_NUM \
      --host $HOST_NAME --webui-port "$WEBUI_PORT" $PORT_FLAG $PORT_NUM $MASTER "$@"
