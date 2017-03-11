@@ -21,3 +21,4 @@ SPARK_DOWNLOAD=http://www-us.apache.org/dist/spark/spark-${SPARK_VERSION}/${SPAR
 
 HIBENCH_ZIP=hibench.zip
 HIBENCH_DOWNLOAD=https://github.com/intel-hadoop/HiBench/archive/master.zip
+HIBENCH_HOME=/usr/lib/hibench

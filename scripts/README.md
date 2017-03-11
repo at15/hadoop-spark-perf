@@ -21,7 +21,7 @@
 - `sys.sh` will upgrade kernel, install essential tools, allow non password ssh
 - `download.sh` will download oracle jdk, hadoop, spark
 - `install.sh` will extract tar ball and build HiBench
-- `config.sh` will update Hadoop config file
+- `config.sh` will update Hadoop, HiBench config file
 
 Hadoop
 
@@ -31,9 +31,9 @@ Hadoop
 
 HiBench
 
-- [ ] TODO: copy hadoop.conf
 - bin/workloads/micro/wordcount/prepare/prepare.sh
 - bin/workloads/micro/wordcount/hadoop/run.sh
+- 4G VM works for single node
 
 NOTE: `common.sh` is used for config, but there are also many hard coded values, i.e. `hadoop-env.sh`
 
