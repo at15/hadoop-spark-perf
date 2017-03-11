@@ -1,26 +1,21 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Vagrant base box script
+
 Vagrant.configure(2) do |config|
 
   # the base box is ubuntu 16.04 LTS
   config.vm.box = "bento/ubuntu-16.04"
 
-  # don't check update
-  config.vm.box_check_update = false
-
-  # forward guest 80 to host 8080
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # Use 777 for the default mount folder. which works for Ubuntu and Mac, windows always got 777
-  # config.vm.synced_folder ".", "/vagrant", \
-  #   :disabled => false, \
-  #   :mount_options  => ['dmode=777,fmode=777']
+  # check update, change it to false you are trying out different provision scripts
+  config.vm.box_check_update = true
 
   config.vm.provider "virtualbox" do |vb|
      # Don't show the GUI unless you have some bug
      vb.gui = false
-     # Customize the amount of memory on the VM:
+     # Customize the amount of memory on the VM,
+     # 2GB is enough for compiling things on the base box, for real vm, you need bigger
      vb.memory = "2048"
   end
 

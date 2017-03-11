@@ -4,15 +4,15 @@
 # Vagrant multi-machine sample setup
 
 Vagrant.configure("2") do |config|
-  config.vm.define :alpha do |alpha|
+  config.vm.define :hmaster do |alpha|
     alpha.vm.box = "at15/hadoop-spark-perf"
-    alpha.vm.network :private_network, ip: "192.168.233.1"
-    alpha.vm.hostname = "alpha"
+    alpha.vm.network :private_network, ip: "192.168.233.18"
+    alpha.vm.hostname = "hmaster"
   end
 
-  config.vm.define :beta do |beta|
+  config.vm.define :hslave1 do |beta|
     beta.vm.box = "at15/hadoop-spark-perf"
-    beta.vm.network :private_network, ip: "192.168.233.2"
-    beta.vm.hostname = "beta"
+    beta.vm.network :private_network, ip: "192.168.233.19"
+    beta.vm.hostname = "hsalve1"
   end
 end
