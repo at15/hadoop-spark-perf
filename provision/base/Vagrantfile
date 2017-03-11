@@ -6,8 +6,8 @@ Vagrant.configure(2) do |config|
   # the base box is ubuntu 16.04 LTS
   config.vm.box = "bento/ubuntu-16.04"
 
-  # need to check update
-  config.vm.box_check_update = true
+  # don't check update
+  config.vm.box_check_update = false
 
   # forward guest 80 to host 8080
   # config.vm.network "forwarded_port", guest: 80, host: 8080
@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
      # Don't show the GUI unless you have some bug
      vb.gui = false
      # Customize the amount of memory on the VM:
-     vb.memory = "4096"
+     vb.memory = "2048"
   end
 
 end

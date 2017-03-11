@@ -42,14 +42,18 @@ function installHibench {
     cd ${SCRIPTPATH}
 }
 
-# TODO: install hadoop and spark
 function installHadoop {
     echo "Install Hadoop"
     tar -zxf ${HADOOP_TAR} -C /tmp
     sudo mv /tmp/hadoop-${HADOOP_VERSION} ${HADOOP_HOME}
-    # NOTE: put config in other script
+    echo "export HADOOP_PREFIX=${HADOOP_HOME}" | sudo tee -a /etc/profile.d/hadoop.sh
+    echo "export HADOOP_YARN_HOME=\${HADOOP_PREFIX}" | sudo tee -a /etc/profile.d/hadoop.sh
+    echo "export HADOOP_CONF_DIR=\${HADOOP_PREFIX}/etc/hadoop" | sudo tee -a /etc/profile.d/hadoop.sh
+    echo "export PATH=\${HADOOP_PREFIX}/bin:\${PATH}" | sudo tee -a /etc/profile.d/hadoop.sh
+    source /etc/profile.d/hadoop.sh
 }
 
+# TODO: install spark
 
 if hash java 2>/dev/null; then
     echo "Java is installed"

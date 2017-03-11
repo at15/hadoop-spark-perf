@@ -1,27 +1,22 @@
-# Scripts for setting up the environment using Vagrant
-
-- [x] Vagrantfile
-- [x] Download JDK, Hadoop, Spark
-- [x] Install JDK
-  - [x] check if it is alreay installed
-- [x] Install Maven
-- [x] Install HiBench
-- [x] Install Single Node Hadoop
-- [ ] Install Single Node Spark
-- [ ] Install java map agent
-  - [ ] compile
-  - [ ] modify bin
-- [ ] Install flame graph
-  - https://github.com/brendangregg/FlameGraph
-  - [ ] set environment variable `export FLAMEGRAPH_DIR=/home/at15/workspace/src/github.com/brendangregg/FlameGraph`
-- [ ] Clone Image
+# Scripts for setting up the base box
 
 ## Usage
 
-- `sys.sh` will upgrade kernel, install essential tools, allow non password ssh
-- `download.sh` will download oracle jdk, hadoop, spark
-- `install.sh` will extract tar ball and build HiBench
-- `config.sh` will update Hadoop, HiBench config file
+Do them in order
+
+- `vagrant up`, download the base Ubuntu 16.04 box and start the VM
+- `vagrant ssh`, ssh into the machine
+
+DO NOT run the following command on host machine
+
+- `cd /vagrant`, vagrant by default mount the host folder where the `Vagrantfile` in to `/vagrant` in guest
+- `sys.sh`, upgrade kernel, install essential tools, allow no password ssh
+- `download.sh`, download oracle JDK, hadoop, spark, hibench
+- `install.sh`, extract tar ball and build HiBench
+- `vagrant package`
+- `vagrant box add --name at15/hadoop-spark-perf package.box`
+- `rm package.box`
+- [ ] TODO: separate to single node setup `config.sh`, update Hadoop, HiBench config file
 
 Hadoop
 
@@ -36,6 +31,28 @@ HiBench
 - 4G VM works for single node
 
 NOTE: `common.sh` is used for config, but there are also many hard coded values, i.e. `hadoop-env.sh`
+
+## TODO
+
+- [ ] Install Single Node Spark
+- [ ] Install java map agent
+  - [ ] compile
+  - [ ] modify bin
+- [ ] Install flame graph
+  - https://github.com/brendangregg/FlameGraph
+  - [ ] set environment variable `export FLAMEGRAPH_DIR=/home/at15/workspace/src/github.com/brendangregg/FlameGraph`
+- [ ] Clone Image
+
+
+## Done
+
+- [x] Vagrantfile
+- [x] Download JDK, Hadoop, Spark
+- [x] Install JDK
+  - [x] check if it is alreay installed
+- [x] Install Maven
+- [x] Install HiBench
+- [x] Install Single Node Hadoop
 
 ## Ref
 
