@@ -13,7 +13,7 @@ DO NOT run the following command on host machine
 - `sys.sh`, upgrade kernel, install essential tools, allow no password ssh
 - `download.sh`, download oracle JDK, hadoop, spark, hibench
 - `install.sh`, extract tar ball and build HiBench
-- `vagrant package`
+- `vagrant package`, this would take a while, the result file is 2.9 GB
 - `vagrant box add --name at15/hadoop-spark-perf package.box`
 - `rm package.box`
 - [ ] TODO: separate to single node setup `config.sh`, update Hadoop, HiBench config file
