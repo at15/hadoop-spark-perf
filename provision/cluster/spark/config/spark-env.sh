@@ -20,6 +20,11 @@
 # This file is sourced when running various Spark programs.
 # Copy it as spark-env.sh and edit that to configure Spark for your site.
 
+# FIXME: why java home can't be found, Spark is using root when ssh?
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_121
+# https://spark.apache.org/docs/latest/hadoop-provided.html
+export SPARK_DIST_CLASSPATH=$(/usr/lib/hadoop/bin/hadoop classpath)
+
 # Options read when launching programs locally with
 # ./bin/run-example or ./bin/spark-submit
 # - HADOOP_CONF_DIR, to point Spark towards Hadoop configuration files
