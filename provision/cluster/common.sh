@@ -16,8 +16,11 @@ HADOOP_DOWNLOAD=http://www-us.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERS
 HADOOP_HOME=/usr/lib/hadoop
 
 SPARK_VERSION=2.1.0
+# TODO: will spark start hadoop?
 SPARK_TAR=spark-${SPARK_VERSION}-bin-without-hadoop.tgz
+SPAKR_FOLDER=spark-${SPARK_VERSION}-bin-without-hadoop
 SPARK_DOWNLOAD=http://www-us.apache.org/dist/spark/spark-${SPARK_VERSION}/${SPARK_TAR}
+SPARK_HOME=/usr/lib/spark
 
 HIBENCH_ZIP=hibench.zip
 HIBENCH_DOWNLOAD=https://github.com/intel-hadoop/HiBench/archive/master.zip
