@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Run HiBench Hadoop"
+echo "Run HiBench Spark"
 
 # get the script path http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd `dirname $0` > /dev/null
@@ -11,8 +11,8 @@ cd ${SCRIPTPATH}
 
 source ../common.sh
 
-${HIBENCH_HOME}/bin/workloads/micro/wordcount/hadoop/run.sh
+${HIBENCH_HOME}/bin/workloads/micro/wordcount/spark/run.sh
 
-echo "Finish HiBench Hadoop"
+echo "Finish HiBench Spark"
 
 cd ${ORIGINAL_WD}

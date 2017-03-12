@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Run HiBench Hadoop"
+echo "Start config"
 
 # get the script path http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd `dirname $0` > /dev/null
@@ -11,8 +11,13 @@ cd ${SCRIPTPATH}
 
 source ../common.sh
 
-${HIBENCH_HOME}/bin/workloads/micro/wordcount/hadoop/run.sh
+cp config/* /tmp/
 
-echo "Finish HiBench Hadoop"
+echo "Config HiBench"
+
+mv /tmp/hadoop.conf ${HIBENCH_HOME}/conf/hadoop.conf
+mv /tmp/spark.conf ${HIBENCH_HOME}/conf/spark.conf
+
+echo "Finish config"
 
 cd ${ORIGINAL_WD}
