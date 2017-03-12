@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
     alpha.vm.hostname = "master"
     alpha.vm.provider "virtualbox" do |vb|
        vb.gui = false
-       vb.memory = "2048"
+       vb.memory = "4096"
     end
     alpha.vm.provision "shell", inline: <<-SHELL
       /vagrant/config.sh
@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
     beta.vm.hostname = "slave1"
     beta.vm.provider "virtualbox" do |vb|
        vb.gui = false
-       vb.memory = "2048"
+       vb.memory = "4096"
     end
     beta.vm.provision "shell", inline: <<-SHELL
       /vagrant/config.sh
@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
     beta.vm.hostname = "slave2"
     beta.vm.provider "virtualbox" do |vb|
        vb.gui = false
-       vb.memory = "2048"
+       vb.memory = "4096"
     end
     beta.vm.provision "shell", inline: <<-SHELL
       /vagrant/config.sh
