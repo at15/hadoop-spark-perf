@@ -5,8 +5,6 @@ Hadoop and Spark CPU performance Benchmark (Separatedly)
 This benchmark focuses on collecting CPU performance and scaling down input size
 while keeping the same characteristics. It does not try to compare overall performance.
 
-NOTE: this is a course project, but I will try to keep the code in good quality
-
 - [Specification](docs/spec.md) What is measured
 - [Implementation](docs/impl.md) How we do it
 
@@ -14,13 +12,13 @@ NOTE: this is a course project, but I will try to keep the code in good quality
 
 Deployment
 
-- [ ] deploy Hadoop cluster 
-- [ ] deploy Spark cluster
+- [ ] deploy Hadoop cluster https://github.com/at15/hadoop-spark-perf/issues/6
+- [x] deploy Spark cluster https://github.com/at15/hadoop-spark-perf/issues/10
 
-Control 
+Control
 
 - [ ] may use consul for configuration
-- [ ] start cluster based on configuration
+- [x] ~~start cluster based on configuration~~ use fixed size cluster
 - [ ] let perf attach to process when job start
 
 Perf
@@ -28,3 +26,8 @@ Perf
 - [ ] use perf without agent
 - [ ] use perf with agent
 - [ ] convert perf data to more common format
+
+Monitor
+
+- [ ] vm for collecting monitor metrics https://github.com/at15/hadoop-spark-perf/issues/9
+- [ ] collect perf data, generate report of each experiment

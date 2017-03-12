@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Start config"
+echo "Format namenode"
 
 # get the script path http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd `dirname $0` > /dev/null
@@ -9,14 +9,10 @@ popd > /dev/null
 ORIGINAL_WD=${PWD}
 cd ${SCRIPTPATH}
 
-source common.sh
+source ../common.sh
 
-cp hosts /tmp/
-sudo mv /tmp/hosts /etc/hosts
+${HADOOP_HOME}/bin/hdfs namenode -format
 
-./spark/config.sh
-./hadoop/config.sh
-
-echo "Finish config"
+echo "Finish format namenode"
 
 cd ${ORIGINAL_WD}
