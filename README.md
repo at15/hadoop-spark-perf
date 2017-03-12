@@ -7,6 +7,7 @@ while keeping the same characteristics. It does not try to compare overall perfo
 
 - [Environment Setup](provision) Local cluster setup using Vagrant
 - [Web UI](web) Dashboard linking to other Admin UI
+- [Process manager](apm) Control process, perf etc.
 - [Specification](doc/spec.md) What is measured
 - [Implementation](doc/impl.md) How we do it
 
