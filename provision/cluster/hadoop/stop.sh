@@ -14,6 +14,6 @@ source ../common.sh
 ${HADOOP_HOME}/sbin/stop-dfs.sh
 ${HADOOP_HOME}/sbin/stop-yarn.sh
 
-echo "Finish stop hdfs"
+echo "Finish stop HDFS and Yarn"
 
 cd ${ORIGINAL_WD}

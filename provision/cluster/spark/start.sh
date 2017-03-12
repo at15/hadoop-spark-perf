@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Start HDFS and Yarn"
+echo "Start Spark"
 
 # get the script path http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 pushd `dirname $0` > /dev/null
@@ -11,9 +11,8 @@ cd ${SCRIPTPATH}
 
 source ../common.sh
 
-${HADOOP_HOME}/sbin/start-dfs.sh
-${HADOOP_HOME}/sbin/start-yarn.sh
+${SPARK_HOME}/sbin/start-all.sh
 
-echo "Finish start HDFS and Yarn"
+echo "Finish start Spark"
 
 cd ${ORIGINAL_WD}
