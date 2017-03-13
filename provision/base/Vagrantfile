@@ -1,22 +1,18 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Vagrant base box script
+# Vagrant base libvirt script
 
 Vagrant.configure(2) do |config|
 
-  # the base box is ubuntu 16.04 LTS
-  config.vm.box = "bento/ubuntu-16.04"
-
-  # check update, change it to false you are trying out different provision scripts
-  config.vm.box_check_update = true
-
-  config.vm.provider "virtualbox" do |vb|
-     # Don't show the GUI unless you have some bug
-     vb.gui = false
-     # Customize the amount of memory on the VM,
-     # 2GB is enough for compiling things on the base box, for real vm, you need bigger
-     vb.memory = "2048"
+  # vagrant up --provider=libvirt
+  config.vm.define :base do |base|
+    base.vm.box = "fedora/25-cloud-base"
+    # FIXME: bidirection using 9p won't work
+    # base.vm.synced_folder './', '/vagrant', type: '9p', disabled: false, accessmode: "mapped", mount: false
+    base.vm.provider :libvirt do |domain|
+      domain.cpu_mode = "host-passthrough"
+    end
   end
 
 end

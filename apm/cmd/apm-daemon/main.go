@@ -12,7 +12,7 @@ var Logger = dlog.NewLogger()
 var log = Logger.NewEntryWithPkg("apm.daemon")
 
 func getFile(filepath string) (*os.File, error) {
-	// FIXME: the file mod is not right, why executable ....
+	// FIXME: should not be 777
 	return os.OpenFile(filepath, os.O_CREATE|os.O_RDWR|os.O_APPEND, 0777)
 }
 

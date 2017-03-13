@@ -14,6 +14,7 @@ DO NOT run the following command on host machine
 - `download.sh`, download oracle JDK, hadoop, spark, hibench
 - `install.sh`, extract tar ball and build HiBench
 - `vagrant package`, this would take a while, the result file is 2.9 GB
+  - `base: Require set read access to /var/lib/libvirt/images/base_base.img. sudo chmod a+r /var/lib/libvirt/images/base_base.img`
 - `vagrant box add --force --name at15/hadoop-spark-perf package.box`
 - `rm package.box`
 
@@ -28,6 +29,11 @@ HiBench
 - bin/workloads/micro/wordcount/prepare/prepare.sh
 - bin/workloads/micro/wordcount/hadoop/run.sh
 - 4G VM works for single node
+
+libvirt
+
+- [ ] remove tarball once they are installed, took a long time for rsync to start (because previous package has `__tmp__package`)
+- 3.8 G ....
 
 NOTE: `common.sh` is used for config, but there are also many hard coded values, i.e. `hadoop-env.sh`
 

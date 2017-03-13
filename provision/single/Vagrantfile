@@ -1,29 +1,18 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Vagrant single node script
+# Vagrant single node libvirt script
 
 Vagrant.configure(2) do |config|
 
-  # use pre-built base box
-  config.vm.box = "at15/hadoop-spark-perf"
-
-  config.vm.box_check_update = false
-
-  # mount apm and web folder
-  config.vm.synced_folder "../../apm", "/home/vagrant/apm", \
-    :create => true
-  config.vm.synced_folder "../../web", "/home/vagrant/web", \
-    :create => true
-
-  # use private network
-  config.vm.network :private_network, ip: "192.168.233.17"
-
-  config.vm.provider "virtualbox" do |vb|
-     # Don't show the GUI unless you have some bug
-     vb.gui = false
-     # 1GB will fail when run micro Hadoop bench
-     vb.memory = "4096"
+  # vagrant up --provider=libvirt
+  config.vm.define :single do |single|
+    # FIXME: waiting for ssh to become avaliable .... ok ... I gave up
+    single.vm.box = "at15/hadoop-spark-perf"
+    # single.vm.box = "fedora/25-cloud-base"
+    single.vm.provider :libvirt do |domain|
+      domain.cpu_mode = "host-passthrough"
+    end
   end
 
 end

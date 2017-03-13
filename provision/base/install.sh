@@ -48,11 +48,14 @@ function installMaven {
 
 function installHibench {
     echo "Install HiBench"
-    unzip hibench.zip -d /tmp
-    sudo mv /tmp/HiBench-master /usr/lib/hibench
-    cd /usr/lib/hibench
-    mvn -Dscala=2.11 clean package
-    cd ${SCRIPTPATH}
+    # FIXME: this is packed by my self, not downloadable
+    tar zxf hibench.dist.tar.gz
+    sudo mv /tmp/HiBench /usr/lib/hibench
+    # unzip hibench.zip -d /tmp
+    # sudo mv /tmp/HiBench-master /usr/lib/hibench
+    # cd /usr/lib/hibench
+    # mvn -Dscala=2.11 clean package
+    # cd ${SCRIPTPATH}
 }
 
 function installHadoop {
