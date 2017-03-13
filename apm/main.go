@@ -2,12 +2,14 @@ package main
 
 import (
 	"os"
+	"strconv"
+
+	"github.com/topfreegames/apm/lib/utils"
 
 	"bytes"
 	"fmt"
 	"io/ioutil"
 	"log"
-	"strconv"
 	"strings"
 	"syscall"
 )
@@ -135,6 +137,45 @@ func terminate(pid int) {
 	log.Printf("%d terminated!", p.Pid)
 }
 
+// copied from apm file_util
+func GetFile(filepath string) (*os.File, error) {
+	// FIXME: the file mod is not right, why executable ....
+	return os.OpenFile(filepath, os.O_CREATE|os.O_RDWR|os.O_APPEND, 0777)
+}
+
+//  sudo perf record /home/at15/workspace/bin/Ayi web static
+// NOTE: start and stop all need sudo
+func perfAyi() {
+	op := "/home/at15/tmp/ayi.out"
+	er := "/home/at15/tmp/ayi.err"
+	outFile, err := utils.GetFile(op)
+	if err != nil {
+		log.Panic(err)
+		return
+	}
+	errFile, err := utils.GetFile(er)
+	if err != nil {
+		log.Panic(err)
+		return
+	}
+	procAtr := os.ProcAttr{
+		Files: []*os.File{
+			os.Stdin,
+			outFile,
+			errFile,
+		},
+	}
+	args := []string{"perf", "record", "/home/at15/workspace/bin/Ayi", "web", "static"}
+	// FIXME: the first argument is gone!
+	// perf: '/home/at15/workspace/bin/Ayi' is not a perf-command. See 'perf --help'.
+	process, err := os.StartProcess("/usr/bin/perf", args, &procAtr)
+	if err != nil {
+		log.Panic(err)
+	}
+	log.Printf("pid is %d", process.Pid)
+
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		log.Panic("need pid")
@@ -149,4 +190,7 @@ func main() {
 	readCmd(pid)
 	readStat(pid)
 	terminate(pid)
+
+	// 24438
+	// perfAyi()
 }
