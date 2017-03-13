@@ -1,0 +1,14 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrant single node script
+
+Vagrant.configure(2) do |config|
+
+  # use pre-built base box
+  config.vm.box = "at15/base-virt"
+  config.vm.provider "libvirt"
+
+  config.vm.box_check_update = false
+
+end
