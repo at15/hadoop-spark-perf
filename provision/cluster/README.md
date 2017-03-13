@@ -4,6 +4,9 @@
 
 Due to package issue, it's better to install everything in the box instead of using a pre built box
 
+- just format namenode ONCE, fedora does not clean `/tmp` like Ubuntu, cluste ID not match problem will happen
+  - http://stackoverflow.com/questions/22316187/datanode-not-starts-correctly
+
 Post install
 
 - remove all the tar ball so the vm start much faster, libvirt use rsync for unidirectional sync

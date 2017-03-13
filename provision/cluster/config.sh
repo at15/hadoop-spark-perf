@@ -13,6 +13,15 @@ source common.sh
 
 cp hosts /tmp/
 sudo mv /tmp/hosts /etc/hosts
+echo "hosts file copied"
+
+cp config/id_rsa ~/.ssh
+chmod 600 ~/.ssh/id_rsa
+cp config/id_rsa.pub ~/.ssh
+chmod 600 ~/.ssh/id_rsa.pub
+cp config/ssh_config ${HOME}/.ssh/config
+chmod 600 ~/.ssh/config
+echo "SSH config copied"
 
 ./spark/config.sh
 ./hadoop/config.sh

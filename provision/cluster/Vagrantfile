@@ -14,18 +14,36 @@ Vagrant.configure("2") do |config|
     alpha.vm.box = "fedora/25-cloud-base"
     alpha.vm.network :private_network, ip: "192.168.233.18"
     alpha.vm.hostname = "master"
+    alpha.vm.provider :libvirt do |domain|
+      domain.cpu_mode = "host-passthrough"
+      domain.memory = "4096"
+    end
+    alpha.vm.provision "shell", inline: <<-SHELL
+      /vagrant/config.sh
+    SHELL
   end
 
   config.vm.define :slave1 do |beta|
     beta.vm.box = "fedora/25-cloud-base"
     beta.vm.network :private_network, ip: "192.168.233.19"
     beta.vm.hostname = "slave1"
+    beta.vm.provider :libvirt do |domain|
+      domain.cpu_mode = "host-passthrough"
+      domain.memory = "4096"
+    end
+    beta.vm.provision "shell", inline: <<-SHELL
+      /vagrant/config.sh
+    SHELL
   end
 
   config.vm.define :slave2 do |beta|
     beta.vm.box = "fedora/25-cloud-base"
     beta.vm.network :private_network, ip: "192.168.233.20"
     beta.vm.hostname = "slave2"
+    beta.vm.provider :libvirt do |domain|
+      domain.cpu_mode = "host-passthrough"
+      domain.memory = "4096"
+    end
   end
 
 end

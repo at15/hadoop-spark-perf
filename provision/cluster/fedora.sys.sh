@@ -33,9 +33,6 @@ else
     echo "SSH config copied"
 fi
 
-# config hosts etc.
-./config.sh
-
 echo "Finish install system tools"
 
 cd ${ORIGINAL_WD}
