@@ -1,5 +1,13 @@
 # Cluster
 
+## libvirt usage
+
+Due to package issue, it's better to install everything in the box instead of using a pre built box
+
+Post install
+
+- remove all the tar ball so the vm start much faster, libvirt use rsync for unidirectional sync
+
 ## Usage
 
 - `./up.sh`
