@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"strconv"
+	"strings"
 	"syscall"
 )
 
@@ -82,11 +83,14 @@ func readCmd(knownPid int) {
 		log.Panic(err)
 		return
 	}
-	log.Print(contents)
-	log.Print(string(contents))
+	// log.Print(contents)
+	// log.Print(string(contents))
 	splited := bytes.Split(contents, []byte{0})
+	// FIXME: it does not work for command style like
+	// /opt/mendeleydesktop/bin/QtWebEngineProcess --type=zygote --no-sandbox --lang=en
+	// NOTE: but it works for Ayi ...
 	for i := 0; i < len(splited); i++ {
-		log.Print(splited[i])
+		// log.Print(splited[i])
 		log.Print(string(splited[i]))
 	}
 	// NOTE: there will be an extra one
@@ -101,6 +105,34 @@ func readCmd(knownPid int) {
 	// 2017/03/12 16:13:55 static
 	// 2017/03/12 16:13:55 []
 	// 2017/03/12 16:13:55
+
+	// this works even wrose ...
+	fields := strings.Fields(string(contents))
+	for i := 0; i < len(fields); i++ {
+		log.Print(string(fields[i]))
+	}
+}
+
+func readStat(knownPid int) {
+	statFile := fmt.Sprintf("/proc/%d/stat", knownPid)
+	contents, err := ioutil.ReadFile(statFile)
+	if err != nil {
+		log.Panic(err)
+		return
+	}
+	log.Print(contents)
+	log.Print(string(contents))
+	//  27883 (Ayi) S 27596 27883 27596 34826 27883
+}
+
+func terminate(pid int) {
+	p, _ := os.FindProcess(pid)
+	err := p.Signal(syscall.SIGTERM)
+	if err != nil {
+		log.Panic(err)
+		return
+	}
+	log.Printf("%d terminated!", p.Pid)
 }
 
 func main() {
@@ -115,4 +147,6 @@ func main() {
 	}
 	find(pid)
 	readCmd(pid)
+	readStat(pid)
+	terminate(pid)
 }
