@@ -5,14 +5,17 @@
 
 Vagrant.configure(2) do |config|
 
-  # vagrant up --provider=libvirt
-  config.vm.define :single do |single|
-    # FIXME: waiting for ssh to become avaliable .... ok ... I gave up
-    single.vm.box = "at15/hadoop-spark-perf"
-    # single.vm.box = "fedora/25-cloud-base"
-    single.vm.provider :libvirt do |domain|
+  config.vm.define :single do |sg|
+    sg.vm.box = "fedora/25-cloud-base"
+    sg.vm.network :private_network, ip: "192.168.233.17"
+    sg.vm.hostname = "single"
+    sg.vm.provider :libvirt do |domain|
       domain.cpu_mode = "host-passthrough"
+      domain.memory = "4096"
     end
+    # sg.vm.provision "shell", inline: <<-SHELL
+    #   /vagrant/config.sh
+    # SHELL
   end
 
 end
