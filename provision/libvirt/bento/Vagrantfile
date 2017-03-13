@@ -1,0 +1,14 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrant single node script
+
+Vagrant.configure(2) do |config|
+
+  # vagrant up --provider=libvirt
+  # TODO: will this work?
+  config.vm.define :test_bento do |test_bento|
+    test_bento.vm.box = "at15/base-virt"
+  end
+
+end

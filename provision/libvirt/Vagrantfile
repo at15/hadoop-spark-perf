@@ -5,10 +5,14 @@
 
 Vagrant.configure(2) do |config|
 
-  # use pre-built base box
-  config.vm.box = "at15/base-virt"
-  config.vm.provider "libvirt"
+  # config.vm.box = "at15/base-virt"
+  # config.vm.network :private_network, ip: "192.168.233.17"
+  #
+  # config.vm.box_check_update = false
 
-  config.vm.box_check_update = false
+  # NOTE: this works .... don't know why ....
+  config.vm.define :test_vm do |test_vm|
+    test_vm.vm.box = "fedora/24-cloud-base"
+  end
 
 end
