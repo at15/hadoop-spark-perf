@@ -5,6 +5,8 @@
 
 Vagrant.configure(2) do |config|
 
+  # vagrant up --provider=libvirt
+
   # config.vm.box = "at15/base-virt"
   # config.vm.network :private_network, ip: "192.168.233.17"
   #
@@ -13,6 +15,15 @@ Vagrant.configure(2) do |config|
   # NOTE: this works .... don't know why ....
   config.vm.define :test_vm do |test_vm|
     test_vm.vm.box = "fedora/24-cloud-base"
+    test_vm.vm.provider :libvirt do |domain|
+      domain.cpu_mode = "host-passthrough"
+    end
   end
 
+  # sudo virsh edit libvirt_test_vm
+  # <cpu mode='host-passthrough'/>
+  # NOTE: can't config it using virt-manager, it does not have this option ....
+  # https://github.com/vagrant-libvirt/vagrant-libvirt#domain-specific-options
+  # libvirt vagrant plugin support config cpu mode, I guess it is modifying the domain config
+  # ok, .... supported!!!
 end
