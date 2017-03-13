@@ -1,0 +1,18 @@
+package: github.com/at15/hadoop-spark-perf/apm
+import:
+- package: github.com/spf13/cobra
+  vcs: git
+  version: 7c674d9e72017ed25f6d2b5e497a1368086b6a6f
+- package: github.com/dyweb/gommon
+  vcs: git
+  version: 7aad4c9c1ff32b9473a816ba27158bf59bfec307
+- package: github.com/jinzhu/gorm
+  vcs: git
+  version: 5409931a1bb87e484d68d649af9367c207713ea2
+- package: github.com/go-kit/kit
+  vcs: git
+  version: fadad6fffe0466b19df9efd9acde5c9a52df5fa4
+testImport:
+- package: github.com/stretchr/testify
+  vcs: git
+  version: 2402e8e7a02fc811447d11f881aa9746cdc57983

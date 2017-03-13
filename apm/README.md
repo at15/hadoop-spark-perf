@@ -2,7 +2,13 @@
 
 https://github.com/at15/hadoop-spark-perf/issues/4
 
+NOTE: this folder might merge with the web folder
+
 ## TODO
+
+Server functionality
+
+- [ ] sqlite
 
 Process management
 
@@ -16,7 +22,7 @@ Java related
   - `jps -v` https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jps.html
 - [ ] Java map agent
 
-## Man pages 
+## Man pages
 
 - https://linux.die.net/man/1/perf
 - https://linux.die.net/man/5/proc
@@ -108,7 +114,7 @@ func (self *ProcArgs) Get(pid int) error {
 }
 ````
 
-- stat 
+- stat
 
 ````go
 func (self *ProcState) Get(pid int) error {

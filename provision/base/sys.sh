@@ -13,7 +13,7 @@ sudo apt-get update
 # FIXME: this upgrade will trigger grub update, which have a text UI
 sudo apt-get upgrade -y
 # NOTE: just installing linux-tools-generic is not enough, you must specify version
-sudo apt-get install -y vim git curl wget zip build-essential gcc make ntp linux-tools-common linux-tools-generic linux-tools-`uname -r` ssh rsync
+sudo apt-get install -y vim git curl wget zip build-essential gcc make ntp linux-tools-common linux-tools-generic linux-tools-`uname -r` ssh rsync nginx
 
 # ssh without key
 if [ -f "${HOME}/.ssh/id_rsa" ]; then
