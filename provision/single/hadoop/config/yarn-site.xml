@@ -5,6 +5,6 @@
     </property>
     <property>
         <name>yarn.resourcemanager.hostname</name>
-        <value>localhost</value>
+        <value>single.perf.at15</value>
     </property>
 </configuration>
