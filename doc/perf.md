@@ -1,9 +1,19 @@
 # Perf
 
+Notes about how to use `perf`
+
 ## Install
+
+Fedora 
 
 - `sudo dnf install perf`
 - [ ] have `Cannot load tips.txt file, please install perf` when using `perf report`
+
+Ubuntu
+
+````bash
+sudo apt-get install linux-tools-common linux-tools-generic linux-tools-`uname -r`
+````
 
 ## Common flags
 

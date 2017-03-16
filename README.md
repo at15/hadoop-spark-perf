@@ -1,11 +1,12 @@
 # hadoop-spark-perf
 
-Hadoop and Spark CPU performance Benchmark (Separatedly)
+Hadoop and Spark CPU performance Benchmark (Separately)
 
 This benchmark focuses on collecting CPU performance and scaling down input size
-while keeping the same characteristics. It does not try to compare overall performance.
+while keeping the same characteristics. 
+It does not try to monitor nor compare overall performance.
 
-- [Environment Setup](provision) Local cluster setup using Vagrant
+- [Environment Setup](provision) Local cluster and single setup using Vagrant
 - [Web UI](web) Dashboard linking to other Admin UI
 - [Process manager](apm) Control process, perf etc.
 - [Specification](doc/spec.md) What is measured
