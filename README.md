@@ -1,5 +1,7 @@
 # hadoop-spark-perf
 
+Deprecated, this project is no longer maintained.
+
 Hadoop and Spark CPU performance Benchmark (Separately)
 
 This benchmark focuses on collecting CPU performance and scaling down input size
